@@ -4,6 +4,7 @@ import (
 	"cveguard-client/cmd/add"
 	"cveguard-client/cmd/ls"
 	"cveguard-client/cmd/remove"
+	"cveguard-client/cmd/scan"
 	"log"
 	"os"
 	"path/filepath"
@@ -36,6 +37,7 @@ func init() {
 	rootCmd.AddCommand(add.AddCmd)
 	rootCmd.AddCommand(ls.LsCmd)
 	rootCmd.AddCommand(remove.RemoveCmd)
+	rootCmd.AddCommand(scan.ScanCmd)
 }
 
 func initConfig() {

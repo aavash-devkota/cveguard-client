@@ -11,7 +11,6 @@ import (
 	"path/filepath"
 	"runtime"
 
-	_ "github.com/joho/godotenv/autoload"
 	"github.com/mitchellh/mapstructure"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -27,7 +26,14 @@ var AddCmd = &cobra.Command{
 			log.Fatalln("Could not get the current working directory:", err)
 		}
 
-		postToServer(args[0], filepath.Join(cwd, args[1]))
+		projectPath := ""
+		if filepath.IsAbs(args[1]) {
+			projectPath = args[1]
+		} else {
+			projectPath = filepath.Join(cwd, args[1])
+		}
+
+		postToServer(args[0], projectPath)
 	},
 }
 

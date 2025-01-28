@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"os"
 
-	_ "github.com/joho/godotenv/autoload"
 	"github.com/mitchellh/mapstructure"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
